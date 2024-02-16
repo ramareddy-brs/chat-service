@@ -49,17 +49,45 @@ function loadScript() {
   })
 
   function sendMessage(event) {
-    var inputMessage = document.getElementById('message')
-    if(inputMessage.value) {
-      pubnub.publish({
-        channel: 'ws-channel',
-        message: inputMessage.value
-      })
-      inputMessage.value = ""
-      event.preventDefault();
+    var inputMessage = document.getElementById('message');
+    var fileInput = document.getElementById('file-input');
+
+    if (inputMessage.value || fileInput.files.length > 0) {
+        var messageToSend = inputMessage.value;
+
+        // If a file is selected, append its name to the message
+        if (fileInput.files.length > 0) {
+            var file = fileInput.files[0];
+            messageToSend += ' [File: ' + file.value + ']';
+        }
+
+        pubnub.publish({
+            channel: 'ws-channel',
+            message: messageToSend
+        });
+
+        // Reset input fields
+        inputMessage.value = '';
+        fileInput.value = '';
+
+        event.preventDefault();
     }
-  }
+}
   document.getElementById('input-form').addEventListener('submit', sendMessage);
 }
+
+const emojiBtn = document.querySelector('#emoji-btn');
+const picker = new EmojiButton();
+// Emoji selection  
+window.addEventListener('DOMContentLoaded', () => {
+
+  picker.on('emoji', emoji => {
+    document.querySelector('input').value += emoji;
+  });
+
+  emojiBtn.addEventListener('click', () => {
+    picker.togglePicker(emojiBtn);
+  });
+});
 
 window.onload = loadScript;

@@ -299,3 +299,19 @@ footer {
 .card{
   height: 70vh;
 }
+#emoji-btn{
+    position: absolute;
+    font-size: 1.2rem;
+    background: transparent;
+    right: 38%;
+    top:2px;
+    opacity:0.5;
+    border: none;
+}
+img {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 16%;
+    top:2px;
+}

@@ -13,6 +13,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/game.css" />
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.7.2.2.min.js"></script>
@@ -36,6 +37,11 @@
               <div class="col-5">
                 <div class="form-items">
                   <input id="message" type="text" placeholder="Enter Message" class="form-control" autofocus autocomplete="off" />
+                  <p id="emoji-btn"> &#127773;</p>
+                  <label for="file-input" id="attachment-icon">
+                    <img src="assets/img/picture.png" alt="Attachment Icon">
+                  </label>
+                  <input type="file" id="file-input" style="display: none;">
                 </div>
               </div>
               <div class="col-1">
@@ -65,6 +71,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
     <script src="assets/js/script.js" defer></script>
   </body>
 </html>
