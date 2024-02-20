@@ -307,6 +307,7 @@ footer {
     top:2px;
     opacity:0.5;
     border: none;
+    cursor: pointer;
 }
 img {
     height: 30px;
@@ -314,4 +315,16 @@ img {
     position: absolute;
     right: 16%;
     top:2px;
+}
+.img-thumbnail {
+    height: 100px;
+    width: 100px;
+}
+.message-image {
+    height: 100px;
+    width: 150px;
+}
+.message {
+    display: flex;
+    flex-direction: column;
 }
