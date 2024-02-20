@@ -73,12 +73,21 @@ function loadScript() {
         var img = document.createElement('img');
         img.classList.add('message-image');
         img.src = imageUrl;
-        messages.appendChild(img);
+
+        var imageContent = document.createElement('div');
+        imageContent.classList.add('image-content');
+      
+        var imageContainer = document.createElement('div');
+        imageContainer.classList.add('image-container');
+
+        imageContent.appendChild(imageContainer);
+        imageContainer.appendChild(img);
+        messages.appendChild(imageContent);
       
         
         pubnub.publish({
           channel: 'ws-channel',
-          message: img.src
+          message: messages.value
         });
       }
       

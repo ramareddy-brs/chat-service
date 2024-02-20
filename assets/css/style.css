@@ -324,7 +324,7 @@ img {
     height: 100px;
     width: 150px;
 }
-.message {
+.image-content {
     display: flex;
     flex-direction: column;
 }
